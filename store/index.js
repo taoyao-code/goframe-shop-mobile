@@ -41,20 +41,25 @@ const store = new Vuex.Store({
 		vuex_tabbar: [{
 			text: "首页",
 			icon: "home",
-			name: "home"
+			name: "home",
+			url:"/pages/home/home",
 		}, {
 			text: "分类",
 			icon: "grid",
-			name: "sort"
+			name: "sort",
+			url:"/pages/sort/sort",
 		},{
 			text: "购物车",
 			icon: "shopping-cart",
-			name: "cart"
+			name: "cart",
+			url:"/pages/cart/cart",
 		},{
 			text: "我的",
 			icon: "account",
-			name: "me"
-		}]
+			name: "me",
+			url:"/pages/me/me",
+		}],
+		tabbar_value:0, // 底部导航下标
 	},
 	mutations: {
 		$uStore(state, payload) {
