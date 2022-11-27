@@ -56,8 +56,8 @@ const store = new Vuex.Store({
 		},{
 			text: "我的",
 			icon: "account",
-			name: "me",
-			url:"/pages/me/me",
+			name: "my",
+			url:"/pages/my/my",
 		}],
 		tabbar_value:0, // 底部导航下标
 	},
