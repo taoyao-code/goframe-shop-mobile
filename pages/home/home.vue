@@ -1,24 +1,29 @@
 <!-- 首页 -->
 <template>
 	<view>
+		<!-- 搜索 -->
 		<view class="search">
 			<u-search placeholder="请输入关键词" v-model="keyword" shape="square" :clearabled="true" :showAction="true"
 				:animation="true">
 			</u-search>
 		</view>
-
+		<!-- 头部轮播图 -->
 		<u-swiper :list="banners" @click="clickBanners" previousMargin="30" nextMargin="30" circular :autoplay="false"
 			radius="5" bgColor="#ffffff" keyName="image"></u-swiper>
-
+		<!-- 分类 -->
 		<u-grid :border="false" col="4">
 			<u-grid-item v-for="(listItem,listIndex) in sort_list" :key="listIndex">
 				<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="listItem.name" :size="22"></u-icon>
 				<text class="grid-text">{{listItem.title}}</text>
 			</u-grid-item>
 		</u-grid>
+		
+		<view>
+			<!-- 商品 -->
+			<GoodsItem></GoodsItem>
+		</view>
 
-
-
+		<!-- 底部导航栏 -->
 		<u-tabbar :value="tabbar_value" :fixed="true" :placeholder="true" :safeAreaInsetBottom="true">
 			<u-tabbar-item v-for="(item,index) in vuex_tabbar" :key="index" :text="item.text" :icon="item.icon"
 				@click="clickTabbar(item,index)">
@@ -31,7 +36,11 @@
 </template>
 
 <script>
+	import GoodsItem from "@/components/Goods/GoodsItem.vue"
 	export default {
+		components:{
+			GoodsItem
+		},
 		data() {
 			return {
 				keyword: "", // 搜索
@@ -82,7 +91,7 @@
 				if (index === 2) {
 					return uni.$u.toast('请您先登录')
 				}
-				uni.$u.vuex('tabbar_value',index)
+				uni.$u.vuex('tabbar_value', index)
 				uni.$u.route(item.url);
 			},
 			// 点击分类
