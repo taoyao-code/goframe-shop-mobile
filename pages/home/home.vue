@@ -11,14 +11,17 @@
 		<u-swiper :list="banners" @click="clickBanners" previousMargin="30" nextMargin="30" circular :autoplay="false"
 			radius="5" bgColor="#ffffff" keyName="image"></u-swiper>
 		<!-- 分类 -->
-		<u-grid :border="false" col="4">
-			<u-grid-item v-for="(listItem,listIndex) in sort_list" :key="listIndex">
-				<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="listItem.name" :size="22"></u-icon>
-				<text class="grid-text">{{listItem.title}}</text>
-			</u-grid-item>
-		</u-grid>
+		<view class="sort">
+			<u-grid :border="false" col="4">
+				<u-grid-item v-for="(listItem,listIndex) in sort_list" :key="listIndex">
+					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="listItem.name" :size="22"></u-icon>
+					<text class="grid-text">{{listItem.title}}</text>
+				</u-grid-item>
+			</u-grid>
+		</view>
 		
 		<view>
+			<u--text suffixIcon="tags" iconStyle="font-size: 20px;color: red" text="热销商品" style="padding: 10rpx;"></u--text>
 			<!-- 商品 -->
 			<GoodsItem></GoodsItem>
 		</view>
@@ -111,6 +114,12 @@
 <style lang="scss">
 	.search {
 		margin: 10rpx;
+	}
+	
+	.sort{
+		// border: 1px solid red;
+		margin: 20rpx 10rpx;
+		box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.2), 0 6rpx 10rpx 0 rgba(0, 0, 0, 0.09);
 	}
 
 	.grid-text {

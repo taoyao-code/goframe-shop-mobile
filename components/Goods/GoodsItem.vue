@@ -6,7 +6,7 @@
 					
 				</u-col>
 			</u-row> -->
-
+			
 			<view class="goods-view">
 				<view class="goods-card" v-for="(item,index) in goodsList" :key="item.id">
 					<!-- 图片 -->
@@ -83,9 +83,10 @@
 		justify-content: space-between;
 		.goods-card {
 			margin:10rpx;
-			width: 350rpx;	
+			padding: 10rpx;
+			width: 330rpx;	
 			// flex-grow: 1;
-			border: 1rpx solid #c8c9cc;
+			// border: 1rpx solid #c8c9cc;
 			box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.1), 0 6rpx 20rpx 0 rgba(0, 0, 0, 0.09);
 			
 			.goods-price{
